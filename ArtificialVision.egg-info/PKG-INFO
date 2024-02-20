@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ArtificialVision
+Version: 0.0.1
+Summary: Artificial Vision Library
+Home-page: https://github.com/hwk06023/ArtificialVision
+Author: hwk06023
+Author-email: hwk06023gmail.com
+License: MIT
+Keywords: hwk060023,Vision,AI,ML,DL,CV,ArtificialVision,ArtificialIntelligence,MachineLearning,DeepLearning,ComputerVision,Python,PyPI,Package,Tutorial,hwk06023
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Requires-Dist: pytorch
+Requires-Dist: opencv-python
+Requires-Dist: scikit-learn
+
+# ArtificialVision
