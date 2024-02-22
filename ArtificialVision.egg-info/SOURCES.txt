@@ -1,8 +1,0 @@
-README.md
-setup.py
-ArtificialVision.egg-info/PKG-INFO
-ArtificialVision.egg-info/SOURCES.txt
-ArtificialVision.egg-info/dependency_links.txt
-ArtificialVision.egg-info/not-zip-safe
-ArtificialVision.egg-info/requires.txt
-ArtificialVision.egg-info/top_level.txt
