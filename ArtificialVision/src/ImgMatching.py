@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-def get_matching_score(img1, img2, type = 0):
+def get_matching_score(img1, img2, type=0):
     if type == 0:
         img1 = cv2.cvtColor(img1, cv2.IMREAD_GRAYSCALE)
         img2 = cv2.cvtColor(img2, cv2.IMREAD_GRAYSCALE)

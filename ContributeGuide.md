@@ -9,29 +9,86 @@ Thank you for considering contributing to our project! We appreciate your time a
 - [Testing](#testing)
 - [Documentation](#documentation)
 - [Issue Reporting](#issue-reporting)
-- [Pull Requests](#pull-requests)
+- [Conclusion](#conclusion)
 
 ## Getting Started
-Include instructions on how to set up the project locally, including any dependencies or prerequisites. Provide clear steps for cloning the repository, installing dependencies, and running the project.
+### Prerequisites
+- Git
+- Python (version specified in `requirements.txt`)
+- Virtual environment tool (e.g., `venv`, `conda`)
+
+### Setting Up Locally
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/yourusername/ArtificialVision.git
+   cd ArtificialVision
+    ```
+
+2. **Create a Virtual Environment**
+
+    for venv:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+
+    for conda:
+    ```bash
+    conda create --name artificialvision python=3.x
+    conda activate artificialvision
+    ```
+
+3. **Install Dependencies**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+<br/>
 
 ## Contributing
-Explain the process for contributing to the project. Provide guidelines for creating issues, making changes, and submitting pull requests. Include information about the code of conduct and the types of contributions that are needed.
+### Creating Issues
+* Use GitHub Issues to report bugs, request features, or ask questions. <br/>
+* Before creating a new issue, please search existing issues to avoid duplicates. <br/>
+* Clearly describe the issue, including steps to reproduce if applicable. <br/> 
+
+### Making Changes
+Making Changes
+1. Create a new branch for your changes:
+    ```bash
+    git checkout -b feature/your_feature_name
+    ```
+
+2. Make and commit your changes. Keep your commits small and focused; they should relate to the issue you're addressing.
+
+3. Write meaningful commit messages that provide context for your changes.
+ <br/>
+
+### Submitting Pull Requests
+1. Push your branch to GitHub:
+    ```
+    git push origin feature/your_feature_name
+    ```
+
+2. Go to the repository on GitHub and click "Pull request" for your branch.
+
+3. Provide a clear title and description for your pull request. Link any relevant issues.
+
+4. Ensure your changes do not break the existing functionality. Add tests if applicable.
 
 ## Code Style
-Specify the coding style and conventions used in the project. This can include guidelines for indentation, naming conventions, variable declarations, and more. Provide examples or references to any style guides that are followed.
+Honestsly, we don't have a strict code style guide. But we encourage you to follow the **PEP 8 style guide** for Python code.
 
 ## Testing
-Explain the testing approach used in the project. Provide instructions on how to run tests and any specific testing frameworks or tools that are used. Encourage contributors to write tests for new features or bug fixes.
+Explain how to run the automated tests for this system. Provide code examples and explanations for running the tests.
 
 ## Documentation
-Explain the documentation standards for the project. Provide guidelines for documenting code, writing API documentation, or updating existing documentation. Encourage contributors to keep the documentation up-to-date.
+Update the [ForOfficialDocs.md](ForOfficialDocs.md) with any changes in setup, usage, or dependencies.
 
 ## Issue Reporting
-Explain how to report issues or bugs in the project. Provide a template or guidelines for creating informative bug reports. Encourage contributors to search for existing issues before creating a new one.
-
-## Pull Requests
-Explain the process for submitting pull requests. Provide guidelines for creating descriptive pull request titles and descriptions. Encourage contributors to link related issues and provide clear explanations of the changes made.
+Explain how to report issues or bugs in the project. Clearly describe the issue, providing the steps to reproduce and the expected outcome. Include error messages, stack traces, and system information (OS, Python version ..).
 
 ## Conclusion
-Thank contributors for their interest in the project and their contributions. Provide contact information or links to further resources if needed.
+Thank contributors for their interest in the project and their contributions.
 
