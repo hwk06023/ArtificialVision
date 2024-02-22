@@ -13,6 +13,7 @@
 
 ## Installation
 
+
 ```bash
 pip install artificialvision
 ```
@@ -100,7 +101,7 @@ ObjDetection.get_result_with_box(video)
     - 0 : Image
     - 1 : Video 
 
-<br/>
+<br/> <br/>
 
 
 
@@ -157,7 +158,7 @@ Segmentation.get_result(type=2)
 - `get_poligon` : bool, default is False
     - If True, get the poligon points of the segmentation result. (Only for the instance segmentation)
 
-<br/>
+<br/> <br/>
 
 
 
@@ -219,9 +220,15 @@ ImgMatching.get_matching_result(img_list, type=3)
     - The threshold for the matching score. If the matching score is less than the threshold, it is considered as a matching result. Range is 0.0 ~ 1.0. Recommended is +-0.1 from the default value.
     
 
+<br/> 
+
+------
+
+<br/>
+
 **If you want to more information, check the [Official Docs]()**
 
-
+<br/>
 
 
 
