@@ -226,6 +226,36 @@ ImgMatching.get_matching_result(img_list, type=3)
 
 <br/> 
 
+## Format
+
+### Inference Data Format
+
+| Inference data format                                                                           | Type in python                                        | Usage Example                  |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------ |
+| [Path of the data](#Methods-Tutorial)                                                           | ```str```                                             | '/Path/to/data/file.extension' |
+| [List](#Methods-Tutorial)                                                                       | ```list```                                            | 
+| [Numpy Array](#Methods-Tutorial)                                                                | ```numpy.ndarray```                                   |
+| [Pytorch Tensor](#Methods-Tutorial)                                                             | ```torch.Tensor```                                    |
+| [Tensorflow Tensor](#Methods-Tutorial)                                                          | ```tensorflow.python.framework.ops.EagerTensor```     |
+
+### Inference Model Format
+
+| Inference model format                                                     | `export.py --include` | Model                     |
+|:---------------------------------------------------------------------------|:----------------------|:--------------------------|
+| [PyTorch](https://pytorch.org/)                                            | -                     | `model.pt`              |
+| [TorchScript](https://pytorch.org/docs/stable/jit.html)                    | `torchscript`         | `model.torchscript`     |
+| [ONNX](https://onnx.ai/)                                                   | `onnx`                | `model.onnx`            |
+| [OpenVINO](https://docs.openvino.ai/latest/index.html)                     | `openvino`            | `model_openvino_model/` |
+| [TensorRT](https://developer.nvidia.com/tensorrt)                          | `engine`              | `model.engine`          |
+| [CoreML](https://github.com/apple/coremltools)                             | `coreml`              | `model.mlmodel`         |
+| [TensorFlow SavedModel](https://www.tensorflow.org/guide/saved_model)      | `saved_model`         | `model_saved_model/`    |
+| [TensorFlow GraphDef](https://www.tensorflow.org/api_docs/python/tf/Graph) | `pb`                  | `model.pb`              |
+| [TensorFlow Lite](https://www.tensorflow.org/lite)                         | `tflite`              | `model.tflite`          |
+| [TensorFlow Edge TPU](https://coral.ai/docs/edgetpu/models-intro/)         | `edgetpu`             | `model_edgetpu.tflite`  |
+| [TensorFlow.js](https://www.tensorflow.org/js)                             | `tfjs`                | `model_web_model/`      |
+| [PaddlePaddle](https://github.com/PaddlePaddle)                            | `paddle`              | `model_paddle_model/`   |
+
+
 ------
 
 <br/>
