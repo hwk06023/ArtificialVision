@@ -11,6 +11,10 @@
 
 <br/>
 
+**The package is still under development and has not been released yet.** 
+
+<br/>
+
 ## Installation
 
 
@@ -226,7 +230,7 @@ ImgMatching.get_matching_result(img_list, type=3)
 
 <br/>
 
-**If you want to more information, check the [Official Docs]()**
+**If you want to more information, check the [Official Docs(Not yet)]()**
 
 <br/>
 
