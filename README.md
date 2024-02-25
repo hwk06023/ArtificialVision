@@ -12,7 +12,7 @@
 
 **❗️ The package is still under development and has not been released yet ❗️**  <br/>
 
-**If next version is released, This message will be removed and this package will be available.**  <br/>
+**If the version exceeds 1.0.0, this message will be removed, and the package will become available.** <br/>
 
 <br/>
 
