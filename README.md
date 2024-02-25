@@ -41,15 +41,11 @@ All the contributions are welcome ! <br/>
 Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 
 
-
-
 ### Contributors
 
 <img src = "https://contrib.rocks/image?repo=hwk06023/ArtificialVision"/>
 
 <br/> <br/>
-
-
 
 
 
