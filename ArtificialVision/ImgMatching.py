@@ -1,47 +1,71 @@
 import cv2
 import numpy as np
 
-def get_matching_score(img1, img2, type=0):
-    if type == 0:
-        img1 = cv2.cvtColor(img1, cv2.IMREAD_GRAYSCALE)
-        img2 = cv2.cvtColor(img2, cv2.IMREAD_GRAYSCALE)
+class ImgMatching:
+    @staticmethod
+    def get_matching_score(source, target, type=0, threshold=0.5):
+        # Initialize SIFT detector
+        sift = cv2.SIFT_create()
 
-        img1 = cv2.resize(img1, (1024, 1024))
-        img2 = cv2.resize(img2, (1024, 1024))
-    else:
-        # another type
-        pass
+        if type == 0:  # Image
+            # Find keypoints and descriptors with SIFT
+            kp1, des1 = sift.detectAndCompute(source, None)
+            kp2, des2 = sift.detectAndCompute(target, None)
 
-    detector = cv2.SIFT_create()
+        elif type == 1:  # Video
+            # Process the first frame of each video
+            ret1, frame1 = source.read()
+            ret2, frame2 = target.read()
+            if not ret1 or not ret2:
+                return None  # Error reading frames
+            kp1, des1 = sift.detectAndCompute(frame1, None)
+            kp2, des2 = sift.detectAndCompute(frame2, None)
 
-    kp1, desc1 = detector.detectAndCompute(img1, None)
-    kp2, desc2 = detector.detectAndCompute(img2, None)
-    print('kp :', kp1[0])
-    print('desc :', desc1[0])
+        # Initialize BFMatcher
+        bf = cv2.BFMatcher()
+        matches = bf.knnMatch(des1, des2, k=2)
 
-    matcher = cv2.BFMatcher(cv2.NORM_L1, crossCheck=False)
-    matches = matcher.knnMatch(desc1, desc2, 2)
-    print('matches :', list(matches[0]))
+        # Apply ratio test to find good matches
+        good_matches = []
+        for m, n in matches:
+            if m.distance < threshold * n.distance:
+                good_matches.append([m])
 
-    ratio = 0.5
-    good_matches = [first for first,second in matches \
-                        if first.distance < second.distance * ratio]
-    print('good matches:%d/%d' %(len(good_matches),len(matches)))
+        # Matching score based on the number of good matches
+        matching_score = len(good_matches) / max(len(des1), len(des2))
+        return matching_score
 
-    if len(good_matches) <= 5:
-        print('False')
-    else:
-        src_pts = np.float32([ kp1[m.queryIdx].pt for m in good_matches ])
-        dst_pts = np.float32([ kp2[m.trainIdx].pt for m in good_matches ])
+    @staticmethod
+    def get_matching_result(source, target, type=0, threshold=0.5):
+        # Initialize SIFT detector
+        sift = cv2.SIFT_create()
 
-        mtrx, mask = cv2.findHomography(src_pts, dst_pts)
-        h,w, = img1.shape[:2]
-        pts = np.float32([ [[0,0]],[[0,h-1]],[[w-1,h-1]],[[w-1,0]] ])
-        dst = cv2.perspectiveTransform(pts,mtrx)
-        img2 = cv2.polylines(img2,[np.int32(dst)],True,255,3, cv2.LINE_AA)
+        if type == 0:  # Image
+            # Find keypoints and descriptors with SIFT
+            kp1, des1 = sift.detectAndCompute(source, None)
+            kp2, des2 = sift.detectAndCompute(target, None)
+            img_matches = np.empty((max(source.shape[0], target.shape[0]), source.shape[1]+target.shape[1], 3), dtype=np.uint8)
 
-        res = cv2.drawMatches(img1, kp1, img2, kp2, good_matches, None, \
-                            flags=cv2.DRAW_MATCHES_FLAGS_NOT_DRAW_SINGLE_POINTS)
-        cv2.imshow('Matching Homography', res)
-        cv2.waitKey()
-        cv2.destroyAllWindows()
+        elif type == 1:  # Video
+            # Process the first frame of each video
+            ret1, frame1 = source.read()
+            ret2, frame2 = target.read()
+            if not ret1 or not ret2:
+                return None  # Error reading frames
+            kp1, des1 = sift.detectAndCompute(frame1, None)
+            kp2, des2 = sift.detectAndCompute(frame2, None)
+            img_matches = np.empty((max(frame1.shape[0], frame2.shape[0]), frame1.shape[1]+frame2.shape[1], 3), dtype=np.uint8)
+
+        # Initialize BFMatcher
+        bf = cv2.BFMatcher()
+        matches = bf.knnMatch(des1, des2, k=2)
+
+        # Apply ratio test to find good matches
+        good_matches = []
+        for m, n in matches:
+            if m.distance < threshold * n.distance:
+                good_matches.append([m])
+
+        # Draw matches
+        cv2.drawMatchesKnn(source, kp1, target, kp2, good_matches, img_matches, flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
+        return img_matches

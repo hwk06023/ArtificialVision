@@ -10,7 +10,7 @@
 
 <br/>
 
-**The package is still under development and has not been released yet.**  <br/>
+**❗️ The package is still under development and has not been released yet ❗️**  <br/>
 
 **If next version is released, This message will be removed and this package will be available.**  <br/>
 
@@ -34,7 +34,7 @@ In this Version, just inference & getting the various results are supported. Sup
 
 <br/>
 
-## Contributing to ArtificialVision
+## Contributing to ArtificialVision (Not yet)
 
 All the contributions are welcome ! <br/>
 
@@ -71,6 +71,13 @@ img = cv2.imread('PATH of Image file')
 ImgClassification.get_result(img)
 ```
 
+<br/>
+
+**Currently, only models pretrained on ImageNet are available.** <br/>
+
+<br/>
+
+
 ### Object Detection
 
 **example**  <br/>
@@ -106,8 +113,11 @@ ObjDetection.get_result_with_box(video)
     - 0 : Image
     - 1 : Video 
 
-<br/> <br/>
+<br/> 
 
+**Currently, only image and video matching are supported.** <br/>
+
+<br/>
 
 
 ### Segmentation
@@ -163,8 +173,11 @@ Segmentation.get_result(type=2)
 - `get_poligon` : bool, default is False
     - If True, get the poligon points of the segmentation result. (Only for the instance segmentation)
 
-<br/> <br/>
+<br/> 
 
+**Currently, only image and video matching are supported.** <br/>
+
+<br/>
 
 
 ### Image Matching
@@ -223,7 +236,10 @@ ImgMatching.get_matching_result(img_list, type=3)
     - 3 : Webcam (real-time)
 - `threshold` : float, default is 0.5
     - The threshold for the matching score. If the matching score is less than the threshold, it is considered as a matching result. Range is 0.0 ~ 1.0. Recommended is +-0.1 from the default value.
-    
+
+<br/>
+
+**Currently, only image and video matching are supported.** <br/>
 
 <br/> 
 

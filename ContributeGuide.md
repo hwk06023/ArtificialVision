@@ -1,6 +1,7 @@
-# Contribution Guide
+# Contribution Guide (Not yet ❗️)
 
 Thank you for considering contributing to our project! We appreciate your time and effort in making our project better.
+
 
 ## Table of Contents
 - [Getting Started](#getting-started)
