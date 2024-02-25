@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ArtificialVision"
+version = "0.1.1"
+description = "Artificial Vision Library"
+readme = "README.md"
+authors = [{ name = "hwk06023", email = "hwk06023@gmail.com" }]
+license = { file = "LICENSE" }
+keywords = ["hwk060023", "Vision", "AI", "ML", "DL", "CV", "ArtificialVision", "ArtificialIntelligence", "MachineLearning", "DeepLearning", "ComputerVision", "Python", "PyPI", "Package", "Tutorial"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+urls = { "Source" = "https://github.com/hwk06023/ArtificialVision" }
+requires-python = ">=3.9"
+
+dependencies = [
+    'torch',
+    'torchvision',
+    'tensorflow',
+    'opencv-python',
+    'scikit-learn',
+    'numpy',
+    'scipy',
+    'matplotlib',
+    'tqdm',
+    'pillow'
+]
