@@ -10,10 +10,10 @@ setup(
     author='hwk06023',
     author_email='hwk06023@gmail.com',
     url='https://github.com/hwk06023/ArtificialVision',
-    install_requires=['pytorch', 'tensorflow', 'opencv-python', 'scikit-learn', 'numpy', 'scipy', 'matplotlib', 'pandas', 'tqdm', 'pillow'],
+    install_requires=['torch', 'torchvision', 'tensorflow', 'opencv-python', 'scikit-learn', 'numpy', 'scipy', 'matplotlib', 'tqdm', 'pillow'],
     packages=find_packages(exclude=[]),
     keywords=['hwk060023', 'Vision', 'AI', 'ML', 'DL', 'CV', 'ArtificialVision', 'ArtificialIntelligence', 'MachineLearning', 'DeepLearning', 'ComputerVision', 'Python', 'PyPI', 'Package', 'Tutorial'],
-    python_requires='>=3.6',
+    python_requires='>=3.9',
     package_data={},
     zip_safe=False,
     classifiers=[
