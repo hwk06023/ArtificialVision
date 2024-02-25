@@ -75,3 +75,36 @@ def segment_video(video, category, detail):
             break
     video.release()
     cv2.destroyAllWindows()
+
+'''
+Updated
+'''
+class Segmentation:
+    def __init__(self):
+        self.label_color_mapping = {}
+        self.label_name_mapping = {0: 'car', 1: 'horse', 2:'human'}
+        # label_name_mapping is temporary label classes
+        # Should be modified to...
+
+        for label in self.label_name_mapping.keys():
+            self.label_color_mapping[label] = tuple(np.random.randint(0, 255, 3).tolist())
+
+    def draw_segmentation(self, image, segmentation, label='', color=None, thickness=2):
+        """Draw polygon based segmentation on an image."""
+        
+        # Label color mapping
+        if label not in self.label_color_mapping:
+            self.label_color_mapping[label] = tuple(np.random.randint(0, 255, 3).tolist())
+
+        # Set Default
+        color = self.label_color_mapping.get(label, (255, 255, 255))
+        class_name = self.label_name_mapping.get(label, 'unknown')
+
+        segmentation = np.array(segmentation).reshape((-1, 1, 2)).astype(np.int32)
+        cv2.polylines(image, [segmentation], isClosed=True, color=color, thickness=thickness)
+        
+        text_position = np.min(segmentation, axis=0).flatten().tolist() # Position the label name (min x, y)
+        if class_name:
+            cv2.putText(image, class_name, tuple(text_position), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, thickness=2)
+        
+        return image
