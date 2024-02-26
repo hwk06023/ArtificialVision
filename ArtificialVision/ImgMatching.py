@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 '''
-get_matching_result is finished, but it is not yet tested.
+get_matching_result is finished, but it is not tested yet.
 '''
 
 def get_matching_result(img1, img2, type=0, threshold=0.5):

@@ -273,7 +273,7 @@ ImgMatching.get_matching_result(img_list, type=3)
 
 <br/>
 
-**If you want to more information, check the [Official Docs(Not yet)]()**
+**If you want more information, check the [Official Docs(Not yet)]()**
 
 <br/>
 
