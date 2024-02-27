@@ -43,7 +43,9 @@ Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 
 ### Contributors
 
-<img src = "https://contrib.rocks/image?repo=hwk06023/ArtificialVision"/>
+<a href="https://github.com/hwk06023/ArtificialVision/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=hwk06023/ArtificialVision" />
+</a>
 
 <br/> <br/>
 
