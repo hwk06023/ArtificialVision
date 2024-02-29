@@ -220,3 +220,61 @@ def save_coco_format(bboxes, class_ids, file_paths, dst_dir='.'):
 
     with open(f"{dst_dir}/annotations.json", 'w') as f:
         json.dump(coco_format, f, indent=2, cls=NpEncoder)
+
+
+def nms(boxes, scores, class_ids, iou_threshold=0.5):
+    """
+    Perform Non-Maximum Suppression (NMS) on bounding boxes with associated scores.
+
+    Parameters:
+    - boxes (np.ndarray): Array of bounding boxes, shape (N, 4), format [x1, y1, x2, y2].
+    - scores (np.ndarray): Array of scores for each bounding box, shape (N,).
+    - class_ids (np.ndarray): Array of class IDs for each bounding box, shape (N,).
+    - iou_threshold (float): Threshold for IOU to determine when boxes overlap too much.
+
+    Returns:
+    - np.ndarray: Boxes after applying NMS.
+    - np.ndarray: Scores for boxes after applying NMS.
+    - np.ndarray: Class IDs for boxes after applying NMS.
+    """
+    idxs = np.argsort(scores)[::-1]
+
+    selected_boxes = []
+
+    while len(idxs) > 0:
+        current_box_idx = idxs[0]
+        selected_boxes.append(current_box_idx)
+
+        if len(idxs) == 1:
+            break
+
+        ious = calculate_iou(boxes[current_box_idx], boxes[idxs[1:]])
+
+        idxs = idxs[1:][ious < iou_threshold]
+
+    return boxes[selected_boxes], scores[selected_boxes], class_ids[selected_boxes]
+
+
+def calculate_iou(box, boxes):
+    """
+    Calculate Intersection Over Union (IOU) between a reference box and a list of boxes.
+
+    Parameters:
+    - box (np.ndarray): Single bounding box, shape (4,), format [x1, y1, x2, y2].
+    - boxes (np.ndarray): Array of bounding boxes to compare against, shape (N, 4).
+
+    Returns:
+    - np.ndarray: IOU values between the reference box and each box in the array.
+    """
+    inter_x1 = np.maximum(box[0], boxes[:, 0])
+    inter_y1 = np.maximum(box[1], boxes[:, 1])
+    inter_x2 = np.minimum(box[2], boxes[:, 2])
+    inter_y2 = np.minimum(box[3], boxes[:, 3])
+
+    inter_area = np.maximum(inter_x2 - inter_x1, 0) * np.maximum(inter_y2 - inter_y1, 0)
+
+    box_area = (box[2] - box[0]) * (box[3] - box[1])
+    boxes_area = (boxes[:, 2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1])
+
+    iou = inter_area / (box_area + boxes_area - inter_area)
+    return iou
