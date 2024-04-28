@@ -7,7 +7,7 @@ label_name_mapping = {}
 
 def set_label_name(label_names={}):
     """Set the label names and initialize label color mapping
-    
+
     Parameters
     ----------
     label_names : dict, optional
@@ -21,27 +21,48 @@ def set_label_name(label_names={}):
         label_color_mapping[label] = tuple(np.random.randint(1, 256, 3).tolist())
 
 
-def add_label(img,
-                   label,
-                   bbox,
-                   size=0.5,
-                   thickness=2,
-                   draw_bg=True,
-                   text_bg_color=(255, 255, 255),
-                   text_color=(0, 0, 0)):
-    (label_width, label_height), baseline = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, size, thickness)
+def add_label(
+    img,
+    label,
+    bbox,
+    size=0.5,
+    thickness=2,
+    draw_bg=True,
+    text_bg_color=(255, 255, 255),
+    text_color=(0, 0, 0),
+):
+    (label_width, label_height), baseline = cv2.getTextSize(
+        label, cv2.FONT_HERSHEY_SIMPLEX, size, thickness
+    )
 
     label_bg_start = (int(bbox[0]), int(bbox[1] - label_height))
-    label_bg_end = (int(label_bg_start[0] + label_width), int(label_bg_start[1] + label_height))
+    label_bg_end = (
+        int(label_bg_start[0] + label_width),
+        int(label_bg_start[1] + label_height),
+    )
     if draw_bg:
-        cv2.rectangle(img, (int(label_bg_start[0]), int(label_bg_start[1])), (int(label_bg_end[0]), int(label_bg_end[1])), text_bg_color, -1)
-    cv2.putText(img, label, (int(bbox[0]), int(bbox[1]) - int(3 * size)), cv2.FONT_HERSHEY_SIMPLEX, size, text_color, thickness)
+        cv2.rectangle(
+            img,
+            (int(label_bg_start[0]), int(label_bg_start[1])),
+            (int(label_bg_end[0]), int(label_bg_end[1])),
+            text_bg_color,
+            -1,
+        )
+    cv2.putText(
+        img,
+        label,
+        (int(bbox[0]), int(bbox[1]) - int(3 * size)),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        size,
+        text_color,
+        thickness,
+    )
     return img
 
 
-def draw_bbox(image, bbox, class_list='', color=None, thickness=2):
+def draw_bbox(image, bbox, class_list="", color=None, thickness=2):
     """Draw bounding box on an image
-    
+
     Parameters
     ----------
     image : ndarray
@@ -65,18 +86,27 @@ def draw_bbox(image, bbox, class_list='', color=None, thickness=2):
 
     # Set Default
     color = label_color_mapping.get(class_list, (255, 255, 255))
-    class_name = label_name_mapping.get(class_list, 'unknown')
+    class_name = label_name_mapping.get(class_list, "unknown")
 
     cv2.rectangle(image, (x1, y1), (x2, y2), color, thickness, cv2.LINE_AA)
     if class_name:
-        add_label(image, class_name, [x1, y1, x2, y2], size=0.5, thickness=2, draw_bg=True, text_bg_color=color, text_color=(0, 0, 0))
+        add_label(
+            image,
+            class_name,
+            [x1, y1, x2, y2],
+            size=0.5,
+            thickness=2,
+            draw_bg=True,
+            text_bg_color=color,
+            text_color=(0, 0, 0),
+        )
 
     return image
 
 
-def draw_segmentation(image, segmentation, class_list='', color=None, thickness=2):
+def draw_segmentation(image, segmentation, class_list="", color=None, thickness=2):
     """Draw segmentation on an image
-    
+
     Parameters
     ----------
     image : ndarray
@@ -98,13 +128,31 @@ def draw_segmentation(image, segmentation, class_list='', color=None, thickness=
 
     # Set Default
     color = label_color_mapping.get(class_list, (255, 255, 255))
-    class_name = label_name_mapping.get(class_list, 'unknown')
+    class_name = label_name_mapping.get(class_list, "unknown")
 
     points = np.array(segmentation).reshape((-1, 2)).astype(np.int32)
-    cv2.polylines(image, [points], isClosed=True, color=color, thickness=thickness, lineType=cv2.LINE_AA) 
-    
-    text_position = np.min(points, axis=0).flatten().tolist()  # Position the label name (min x, y)
+    cv2.polylines(
+        image,
+        [points],
+        isClosed=True,
+        color=color,
+        thickness=thickness,
+        lineType=cv2.LINE_AA,
+    )
+
+    text_position = (
+        np.min(points, axis=0).flatten().tolist()
+    )  # Position the label name (min x, y)
     if class_name:
-        add_label(image, class_name, text_position, size=0.5, thickness=2, draw_bg=True, text_bg_color=color, text_color=(0, 0, 0))
+        add_label(
+            image,
+            class_name,
+            text_position,
+            size=0.5,
+            thickness=2,
+            draw_bg=True,
+            text_bg_color=color,
+            text_color=(0, 0, 0),
+        )
 
     return image

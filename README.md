@@ -1,6 +1,6 @@
 # ArtificialVision
 
-<img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AEYmBYSOMvdeaLCLq2djzo1mgZIEd6-Qyll8boR6V7Z1VHYkH2IFJzg8geBFdcxis-KIyVdoawhJTa-mWCLmfImUXQIoCJVv8w=w1762-h1610" width=550> <br/>
+<img src="./img/logo.png" width=550> <br/>
 
 [![PyPI version](https://badge.fury.io/py/artificialvision.svg)](https://badge.fury.io/py/artificialvision)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

@@ -79,7 +79,8 @@ Making Changes
 4. Ensure your changes do not break the existing functionality. Add tests if applicable.
 
 ## Code Style
-Honestsly, we don't have a strict code style guide. But we encourage you to follow the **PEP 8 style guide** for Python code.
+Follow the **PEP 8 style guide** for Python code. <br/>
+So, we encourage you to use the **[Black formatter](https://github.com/psf/black)**  <br/>
 
 ## Testing
 Explain how to run the automated tests for this system. Provide code examples and explanations for running the tests.
