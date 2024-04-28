@@ -1,5 +1,6 @@
 # ArtificialVision
 
+<div align="center">
 <img src="./img/logo.png" width=550> <br/>
 
 [![PyPI version](https://badge.fury.io/py/artificialvision.svg)](https://badge.fury.io/py/artificialvision)
@@ -13,6 +14,8 @@
 **❗️ The package is still under development and has not been released yet ❗️**  <br/>
 
 **If the version exceeds 1.0.0, this message will be removed, and the package will become available.** <br/>
+
+</div>
 
 <br/>
 
