@@ -43,6 +43,22 @@ All the contributions are welcome ! <br/>
 
 Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 
+## Features
+
+- [x] Classification
+- [x] Object Detection
+- [x] Segmentation
+- [x] Matching
+- [ ] Generation
+- [ ] Restoration
+- [ ] Super-Resolution
+- [ ] Inpainting
+- [ ] Colorization
+- [ ] Style Transfer
+- [ ] Denoising
+- [ ] Deblurring
+- [ ] Dehazing 
+
 
 ### Contributors
 
@@ -51,8 +67,6 @@ Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 </a>
 
 <br/> <br/>
-
-
 
 
 ## Methods Tutorial
