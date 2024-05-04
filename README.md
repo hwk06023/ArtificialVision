@@ -1,7 +1,7 @@
 # ArtificialVision
 
 <div align="center">
-<img src="./img/logo.png" width=550> <br/>
+<img src="./artificialvision/img/logo.png" width=550> <br/>
 
 [![PyPI version](https://badge.fury.io/py/artificialvision.svg)](https://badge.fury.io/py/artificialvision)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -51,6 +51,7 @@ Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 - [ ] Object Detection
 - [ ] Segmentation
 - [ ] Pose Estimation
+- [ ] feature Extraction
 
 ### Secondary Methods
 
