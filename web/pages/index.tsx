@@ -80,7 +80,9 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const markDownDirectory = path.join(process.cwd(), '../');
+  const root = './public/markDown/';
+
+  const markDownDirectory = path.join(process.cwd(), root);
   const files = fs.readdirSync(markDownDirectory);
 
   let markDownFiles: Array<string> = [];
@@ -89,7 +91,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   });
 
   const page = context.query.page || 'README';
-  const markDownFilePath = path.join(process.cwd(), `../${page}.md`);
+  const markDownFilePath = path.join(process.cwd(), `${root}${page}.md`);
   const fileContents = fs.readFileSync(markDownFilePath, 'utf8');
   const { content } = matter(fileContents);
 
