@@ -1,0 +1,13 @@
+.bodyBackground {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+.bodyContainer {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0px 10px;
+  gap: 40px;
+}
