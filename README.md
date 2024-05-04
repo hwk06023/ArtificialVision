@@ -51,6 +51,7 @@ Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 - [ ] Object Detection
 - [ ] Segmentation
 - [ ] Pose Estimation
+- [ ] feature Extraction
 
 ### Secondary Methods
 
