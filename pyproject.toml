@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ArtificialVision"
-version = "0.1.3"
+version = "0.1.4"
 description = "Artificial Vision Library"
 readme = "README.md"
 authors = [{ name = "hwk06023", email = "hwk06023@gmail.com" }]
 license = { file = "LICENSE" }
-keywords = ["hwk060023", "Vision", "AI", "ML", "DL", "CV", "ArtificialVision", "ArtificialIntelligence", "MachineLearning", "DeepLearning", "ComputerVision", "Python", "PyPI", "Package", "Tutorial"]
+keywords = ["hwk060023", "Vision", "AI", "ML", "DL", "CV", "ArtificialVision", "ArtificialIntelligence", "MachineLearning", "DeepLearning", "ComputerVision", "Python", "PyPI", "Package", "Tutorial", "Research", "Development", "Library", "Framework", "Tool", "Utility", "Module", "Class", "Function", "Method", "Variable", "Constant", "Parameter", "Argument", "Hyperparameter", "Model", "Dataset", "Preprocessing", "Augmentation", "Training", "Validation", "Testing", "Evaluation", "Prediction", "Inference", "Analysis", "Visualization", "Benchmark", "Comparison", "Documentation", "Reference", "Paper"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",

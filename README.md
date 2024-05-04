@@ -43,6 +43,23 @@ All the contributions are welcome ! <br/>
 
 Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 
+## TODO
+
+### Primary Methods
+
+- [ ] Classification
+- [ ] Object Detection
+- [ ] Segmentation
+- [ ] Pose Estimation
+
+### Secondary Methods
+
+- [ ] Matching
+- [ ] Tracking
+- [ ] Generation
+- [ ] Restoration
+- [ ] Super-Resolution
+
 
 ### Contributors
 
@@ -51,8 +68,6 @@ Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 </a>
 
 <br/> <br/>
-
-
 
 
 ## Methods Tutorial
