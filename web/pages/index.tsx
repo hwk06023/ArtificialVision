@@ -89,7 +89,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     if (file.includes('.md')) markDownFiles.push(file.replace(/\.md$/, ''));
   });
 
-  const page = context.query.page || 'README';
+  const page = context.query.page || 'Read';
   const markDownFilePath = path.join(process.cwd(), `${root}${page}.md`);
   const fileContents = fs.readFileSync(markDownFilePath, 'utf8');
   const { content } = matter(fileContents);
