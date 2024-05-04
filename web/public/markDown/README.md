@@ -1,7 +1,7 @@
 # ArtificialVision
 
 <div align="center">
-<img src="./img/logo.png" width=550> <br/>
+<img src="https://github.com/hwk06023/ArtificialVision/blob/master/artificialvision/img/logo.png?raw=true" width=550> <br/>
 
 [![PyPI version](https://badge.fury.io/py/artificialvision.svg)](https://badge.fury.io/py/artificialvision)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

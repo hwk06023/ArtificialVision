@@ -39,7 +39,6 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
 
   useEffect(() => {
     let html = serverSideProps.content;
-    html = html.replace(/.\/img\/logo.png/, '');
     html = html.replace(/<hr>/g, '');
     html = html.replace(/<h1>/g, `<h1 class="${styles.markDownTitleText}">`);
     html = html.replace(/<h2>/g, `<h2 class="${styles.markDownContentText}">`);
