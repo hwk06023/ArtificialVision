@@ -43,21 +43,22 @@ All the contributions are welcome ! <br/>
 
 Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 
-## Features
+## TODO
 
-- [x] Classification
-- [x] Object Detection
-- [x] Segmentation
-- [x] Matching
+### Primary Methods
+
+- [ ] Classification
+- [ ] Object Detection
+- [ ] Segmentation
+- [ ] Pose Estimation
+
+### Secondary Methods
+
+- [ ] Matching
+- [ ] Tracking
 - [ ] Generation
 - [ ] Restoration
 - [ ] Super-Resolution
-- [ ] Inpainting
-- [ ] Colorization
-- [ ] Style Transfer
-- [ ] Denoising
-- [ ] Deblurring
-- [ ] Dehazing 
 
 
 ### Contributors
