@@ -11,3 +11,10 @@
   margin: 0px 10px;
   gap: 40px;
 }
+
+@media screen and (max-width: 1024px) {
+  .bodyContainer {
+    grid-template-columns: 1fr;
+    margin: 0px 20px;
+  }
+}

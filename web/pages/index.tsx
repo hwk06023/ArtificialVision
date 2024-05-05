@@ -10,13 +10,10 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-interface subContentProps {
-  content: string
-  subContent: Array<string>
-}
-
 const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter();
+
+  const [environment, setEnvironment] = useState<'pc' | 'mobile'>('pc');
 
   const [markDownHtml, setMarkDownHtml] = useState<string>('');
 
@@ -37,17 +34,29 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
     window.scrollTo({ top: offsetPosition });
   }
 
+  let timeoutId: NodeJS.Timeout;
+  const checkEnvironment = () => {
+    clearInterval(timeoutId);
+    timeoutId = setTimeout(() => {
+      if (window.innerWidth > 1024) setEnvironment('pc');
+      else setEnvironment('mobile');
+    }, 100);
+  }
+
   useEffect(() => {
     let html = serverSideProps.content;
     html = html.replace(/<hr>/g, '');
+    html = html.replace(/<img id="logo"/g, `<img class="${styles.markDownImage}"`);
     html = html.replace(/<h1>/g, `<h1 class="${styles.markDownTitleText}">`);
     html = html.replace(/<h2>/g, `<h2 class="${styles.markDownContentText}">`);
     html = html.replace(/<h3>/g, `<h3 class="${styles.markDownSubContentText}">`);
     html = html.replace(/<p>/g, `<p class="${styles.markDownNormalText}">`);
     html = html.replace(/<pre>/g, `<pre class="${styles.markDownPre}">`);
+    html = html.replace(/<code/g, `<code class="${styles.markDownCode}"`);
     html = html.replace(/<ul>/g, `<ul class="${styles.markDownUl}">`);
     html = html.replace(/<li>/g, `<li class="${styles.markDownLi}">`);
     html = html.replace(/<table>/g, `<table class="${styles.markDownTable}">`);
+    // html = html.replace(/<table>/g, ``);
 
     setMarkDownHtml(html);
   }, [serverSideProps.page]);
@@ -66,13 +75,18 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
     }
   }, [markDownHtml]);
 
+  useEffect(() => {
+    window.addEventListener('resize', checkEnvironment);
+    checkEnvironment();
+  }, []);
+
   return (
     <>
       <Header />
       <Body>
-        <Category title="ArtificialVision" categories={markDownFiles} selectedCategory={serverSideProps.page} onClick={changeMarkDownFile} />
+        { environment === 'pc' && <Category title="ArtificialVision" categories={markDownFiles} selectedCategory={serverSideProps.page} onClick={changeMarkDownFile} /> }
         <div className={`${styles.markDown}`} dangerouslySetInnerHTML={{ __html: markDownHtml }} />
-        <Category title="Table of contents" contents={contentNames} onClick={scrollToContent} />
+        { environment === 'pc' && <Category title="Table of contents" contents={contentNames} onClick={scrollToContent} /> }
       </Body>
     </>
   );
