@@ -56,7 +56,6 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
     html = html.replace(/<ul>/g, `<ul class="${styles.markDownUl}">`);
     html = html.replace(/<li>/g, `<li class="${styles.markDownLi}">`);
     html = html.replace(/<table>/g, `<table class="${styles.markDownTable}">`);
-    // html = html.replace(/<table>/g, ``);
 
     setMarkDownHtml(html);
   }, [serverSideProps.page]);
@@ -82,7 +81,7 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
 
   return (
     <>
-      <Header />
+      <Header environment={environment} />
       <Body>
         { environment === 'pc' && <Category title="ArtificialVision" categories={markDownFiles} selectedCategory={serverSideProps.page} onClick={changeMarkDownFile} /> }
         <div className={`${styles.markDown}`} dangerouslySetInnerHTML={{ __html: markDownHtml }} />
