@@ -43,3 +43,26 @@
     opacity: 0;
   }
 }
+
+.sidebarContentBackgroundIncrease {
+  animation: sidebarContentBackgroundIncrease 350ms forwards;
+}
+@keyframes sidebarContentBackgroundIncrease {
+  0% {
+    max-height: 0px;
+  }
+  100% {
+    max-height: var(--sidebar-content-container-height);
+  }
+}
+.sidebarContentBackgroundDecrease {
+  animation: sidebarContentBackgroundDecrease 350ms forwards;
+}
+@keyframes sidebarContentBackgroundDecrease {
+  0% {
+    max-height: var(--sidebar-content-container-height);
+  }
+  100% {
+    max-height: 0px;
+  }
+}

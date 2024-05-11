@@ -19,6 +19,7 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
 
   const [contents, setContents] = useState<Array<HTMLHeadingElement>>([]);
   const [contentNames, setContentNames] = useState<Array<string>>([]);
+  const [selectedContent, setSelectedContent] = useState<string>('');
 
   const markDownFiles: Array<string> = serverSideProps.markDownFiles;
 
@@ -32,6 +33,7 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
     const offsetPosition = contentPosition + window.scrollY - headerOffset;
 
     window.scrollTo({ top: offsetPosition });
+    setSelectedContent(contentNames[index]);
   }
 
   let timeoutId: NodeJS.Timeout;
@@ -44,7 +46,7 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
   }
 
   useEffect(() => {
-    let html = serverSideProps.content;
+    let html = serverSideProps.markDownHtml;
     html = html.replace(/<hr>/g, '');
     html = html.replace(/<img id="logo"/g, `<img class="${styles.markDownImage}"`);
     html = html.replace(/<h1>/g, `<h1 class="${styles.markDownTitleText}">`);
@@ -71,8 +73,20 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
 
       setContents(contents);
       setContentNames(contentNames);
+      setSelectedContent('');
     }
   }, [markDownHtml]);
+
+  useEffect(() => {
+    const pageContents = document.getElementsByClassName(styles.markDownContentText);
+    
+    if (pageContents.length !== 0) {
+      Object.values(pageContents).map((content) => {
+        if (content.textContent === selectedContent) content.setAttribute('style', 'color: var(--light-blue)');
+        else content.setAttribute('style', 'color: black');
+      });
+    }
+  }, [selectedContent]);
 
   useEffect(() => {
     window.addEventListener('resize', checkEnvironment);
@@ -81,7 +95,7 @@ const home = (serverSideProps: InferGetServerSidePropsType<typeof getServerSideP
 
   return (
     <>
-      <Header environment={environment} />
+      <Header environment={environment} categories={markDownFiles} selectedCategory={serverSideProps.page} contents={contentNames} changeMarkDownFile={changeMarkDownFile} scrollToContent={scrollToContent} />
       <Body>
         { environment === 'pc' && <Category title="ArtificialVision" categories={markDownFiles} selectedCategory={serverSideProps.page} onClick={changeMarkDownFile} /> }
         <div className={`${styles.markDown}`} dangerouslySetInnerHTML={{ __html: markDownHtml }} />
@@ -117,7 +131,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       markDownFiles: markDownFiles.reverse(),
-      content: htmlContent,
+      markDownHtml: htmlContent,
       page: page
     }
   }
