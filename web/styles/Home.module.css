@@ -12,6 +12,10 @@
 .markDown {
   margin-bottom: 80px;
 }
+.markDownImage {
+  width: 90%;
+  height: auto;
+}
 .markDownTitleText {
   padding-bottom: 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -29,6 +33,8 @@
   margin-top: 15px;
 }
 .markDownPre {
+  overflow-x: auto;
+  max-width: calc(100vw - 70px);
   margin-top: 15px;
   padding: 10px 15px;
   border-radius: 2px;
@@ -42,12 +48,12 @@
   width: 95%;
   margin-left: auto;
 }
-.markDownLi > code {
+.markDownLi > .markDownCode {
   padding: 5px;
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.05);
 }
-.markDownNormalText > code {
+.markDownNormalText > .markDownCode {
   padding: 5px;
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.05);
@@ -60,4 +66,10 @@
 }
 .markDownTable > tbody tr:nth-child(2n) {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 768px) {
+  .markDownLi {
+    width: 90%;
+  }
 }

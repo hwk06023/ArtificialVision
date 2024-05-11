@@ -1,0 +1,68 @@
+.sidebarSlideIn {
+  animation: sidebarSlideIn 350ms backwards;
+}
+.sidebarSlideOut {
+  animation: sidebarSlideOut 350ms backwards;
+}
+@keyframes sidebarSlideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes sidebarSlideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.sidebarWhiteSpaceFadeIn {
+  animation: sidebarWhiteSpaceFadeIn 350ms backwards;
+}
+.sidebarWhiteSpaceFadeOut {
+  animation: sidebarWhiteSpaceFadeOut 350ms backwards;
+}
+@keyframes sidebarWhiteSpaceFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes sidebarWhiteSpaceFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.sidebarContentBackgroundIncrease {
+  animation: sidebarContentBackgroundIncrease 350ms forwards;
+}
+@keyframes sidebarContentBackgroundIncrease {
+  0% {
+    max-height: 0px;
+  }
+  100% {
+    max-height: var(--sidebar-content-container-height);
+  }
+}
+.sidebarContentBackgroundDecrease {
+  animation: sidebarContentBackgroundDecrease 350ms forwards;
+}
+@keyframes sidebarContentBackgroundDecrease {
+  0% {
+    max-height: var(--sidebar-content-container-height);
+  }
+  100% {
+    max-height: 0px;
+  }
+}
