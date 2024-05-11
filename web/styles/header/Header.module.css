@@ -19,10 +19,10 @@
 
 .hamburgerContainer {
   cursor: pointer;
-  margin-right: 15px;
+  padding-right: 15px;
   display: flex;
   width: 25px;
-  height: auto;
+  height: 100%;
 }
 .hamburgerIcon {
   filter: invert(1);
