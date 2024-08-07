@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ArtificialVision"
-version = "0.1.3"
+version = "0.1.4"
 description = "Artificial Vision Library"
 readme = "README.md"
 authors = [{ name = "hwk06023", email = "hwk06023@gmail.com" }]

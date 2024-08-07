@@ -1,0 +1,49 @@
+.categoryBackground {
+  display: flex;
+  flex-direction: column;
+}
+.categoryContainer {
+  position: sticky;
+  top: 80px;
+}
+
+.titleText {
+  font-size: var(--light-font-size);
+  color: var(--title-color);
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-top: 10px;
+  gap: 10px;
+}
+.listContainer::-webkit-scrollbar {
+  width: 7px;
+}
+.listContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.listContainer::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.listContainer:hover::-webkit-scrollbar-thumb {
+  background-color: var(--light-blue);
+}
+
+.contentContainer {
+  display: flex;
+}
+.contentText {
+  cursor: pointer;
+  font-size: var(--light-font-size);
+  color: var(--normal-color);
+  transition: all 100ms;
+}
+.contentText:hover {
+  color: var(--light-blue);
+}
+.selectedContentText {
+  color: var(--normal-blue);
+}

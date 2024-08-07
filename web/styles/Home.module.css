@@ -1,0 +1,75 @@
+.ArtificialVisionImageContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.ArtificialVisionImage {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+}
+
+.markDown {
+  margin-bottom: 80px;
+}
+.markDownImage {
+  width: 90%;
+  height: auto;
+}
+.markDownTitleText {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.markDownContentText {
+  margin-top: 80px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.markDownSubContentText {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+.markDownNormalText {
+  margin-top: 15px;
+}
+.markDownPre {
+  overflow-x: auto;
+  max-width: calc(100vw - 70px);
+  margin-top: 15px;
+  padding: 10px 15px;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.markDownUl {
+  margin-top: 10px;
+}
+.markDownLi {
+  margin-top: 5px;
+  width: 95%;
+  margin-left: auto;
+}
+.markDownLi > .markDownCode {
+  padding: 5px;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.markDownNormalText > .markDownCode {
+  padding: 5px;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.markDownTable {
+  margin-top: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-spacing: 0px;
+  width: 100%;
+}
+.markDownTable > tbody tr:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 768px) {
+  .markDownLi {
+    width: 90%;
+  }
+}
