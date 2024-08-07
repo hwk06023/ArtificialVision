@@ -11,6 +11,10 @@
 
 <br/>
 
+**[Artificialvision Docs](artificialvision-python.com)**
+
+<br/>
+
 **❗️ The package is still under development and has not been released yet ❗️**  <br/>
 
 **If the version exceeds 1.0.0, this message will be removed, and the package will become available.** <br/>
@@ -64,9 +68,10 @@ Check the [ContributeGuide.md](ContributeGuide.md) for more information. <br/>
 
 ### Contributors
 
-<a href="https://github.com/hwk06023/ArtificialVision/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=hwk06023/ArtificialVision" />
+<a href="https://github.com/hwk06023/artificialvision/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=hwk06023/artificialvision" />
 </a>
+
 
 <br/> <br/>
 
