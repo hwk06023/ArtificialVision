@@ -41,6 +41,7 @@ In this Version, just inference & getting the various results are supported. Sup
 
 <br/>
 
+
 ## Contributing to ArtificialVision (Not yet)
 
 All the contributions are welcome ! <br/>
